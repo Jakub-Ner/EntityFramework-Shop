@@ -1,0 +1,90 @@
+﻿@page
+@model lab12.Pages.Shops.IndexModel
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<h1>Shop</h1>
+
+
+<form id="filterForm" asp-page-handler="OnPostAsync" method="post">
+    <label for="categoryId">Select Category:</label>
+    <select id="categoryId" name="categoryId" onchange="submitForm()">
+        <option value="">@ViewData["SelectedCategory"]</option>
+        @foreach (var category in Model?.Categories)
+            @if (ViewData["SelectedCategory"] == category?.Name)
+            {
+                <option id="categoryIdValue" value="-1">All</option>
+
+            }
+            else
+            {
+                <option id="categoryIdValue" value="@category.Id">@category?.Name</option>
+            }
+    </select>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Image
+            </th>
+            <th>
+                Add to Cart
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="articleTableBody">
+        @foreach (var item in Model.Articles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @if (item.ImagePath == null)
+                    {
+                        <img src="~/upload/noimage.png" style="max-height: 50px; max-width: 50px" />
+                    }
+                    else
+                    {
+                        <img src="~/upload/@item.ImagePath" style="max-height: 50px; max-width: 50px" />
+                    }
+                </td>
+                <td>
+                    <form method="post" asp-controller="Shop" asp-action="AddToCart">
+                        <input type="hidden" value="@item.Id" name="ArticleId" />
+                        <button type="submit">+</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Cart" asp-controller="Shop">Go to Cart</a>
+@section Scripts {
+    <script>
+        var submitForm = function () {
+            document.getElementById("filterForm").submit();
+        }
+    </script>
+}
