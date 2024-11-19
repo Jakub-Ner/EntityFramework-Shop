@@ -21,7 +21,7 @@ namespace Lab10DB.Data
                         .HasMany(c => c.Articles)
                         .WithOne(a => a.Category)
                         .HasForeignKey(a => a.CategoryId)
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.SetNull); // Cascade
 
             modelBuilder.Entity<Category>()
                 .HasMany(c => c.Articles)
@@ -29,7 +29,7 @@ namespace Lab10DB.Data
                 .IsRequired(false);
 
 
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
 
     }
@@ -80,18 +80,21 @@ namespace Lab10DB.Data
                     Id = 1,
                     Name = "car",
                     CategoryId = 1,
-                    Price = 100
+                    Price = 100,
+                    promo = true
                 },
                 new Article
                 {
                     Id = 2,
                     Name = "nike",
                     CategoryId = 1,
+                    promo = true,
                     Price = 200
                 },
                 new Article
                 {
                     Id = 3,
+                    promo = true,
                     Name = "plane T-Shirt",
                     CategoryId = 2,
                     Price = 300
@@ -100,6 +103,7 @@ namespace Lab10DB.Data
                 {
                     Id = 4,
                     Name = "Burger",
+                    promo = true,
                     CategoryId = 3,
                     Price = 400
                 },
@@ -108,12 +112,14 @@ namespace Lab10DB.Data
                     Id = 5,
                     Name = "Coffee",
                     CategoryId = 4,
+                    promo = true,
                     Price = 500
                 },
                 new Article
                 {
                     Id = 6,
                     Name = "Knife",
+                    promo = true,
                     CategoryId = 5,
                     Price = 600
                 }
