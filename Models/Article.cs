@@ -22,6 +22,8 @@ namespace Lab10DB.Models
 
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+
+        public bool promo { get; set; }
     }
 
     public class ArticleViewModel

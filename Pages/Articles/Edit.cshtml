@@ -30,6 +30,10 @@
                 <span asp-validation-for="Article.CategoryId" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Article.ImagePath" />
+            <div class="form-group">
+                <label asp-for="Article.promo" class="control-label"></label>
+                <input asp-for="Article.promo" type="checkbox" />
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

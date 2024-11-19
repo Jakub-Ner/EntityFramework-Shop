@@ -14,8 +14,6 @@ namespace lab12.Pages.Shops
         }
 
         public IList<Category> Categories { get; set; } = default!;
-
-
         public IList<Article> Articles { get; set; } = default!;
 
         public async Task OnGetAsync()

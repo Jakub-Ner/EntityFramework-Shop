@@ -41,7 +41,7 @@
                 Image
             </th>
             <th>
-                Add to Cart
+                Promo
             </th>
 
             <th></th>
@@ -71,11 +71,16 @@
                     }
                 </td>
                 <td>
-                    <form method="post" asp-controller="Shop" asp-action="AddToCart">
-                        <input type="hidden" value="@item.Id" name="ArticleId" />
-                        <button type="submit">+</button>
-                    </form>
+                    @if (item.promo)
+                    {
+                        <p>On sale!</p>
+                    }
+                    else
+                    {
+                        <p>Not on sale</p>
+                    }
                 </td>
+
             </tr>
         }
     </tbody>

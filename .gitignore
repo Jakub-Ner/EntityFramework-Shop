@@ -1,0 +1,102 @@
+# Ignore build results
+bin/
+obj/
+Debug/
+Release/
+build/
+# If using Razor class libraries
+wwwroot/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# VS Code specific
+.vscode/
+
+# Rider specific
+.idea/
+
+# Log files
+*.log
+logs/
+
+# Windows specific
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Dependency directories
+node_modules/
+bower_components/
+packages/
+
+# Byebug exception log files
+*.swp
+*.swpx
+*.lock.json
+
+# Visual Studio Code files
+.vscode/
+.vscode-test/
+
+# Visual Studio for Mac
+.idea/
+
+# Database
+*.mdf
+*.ldf
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# JetBrains Rider
+.idea/
+
+# Npm-debug
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# EF Core Migrations
+Migrations/
+
+# Backup Files
+*.bak
+
+# Resharper files
+_ReSharper*/ 
+*.[dD]ocumentCache/
+*.sln.ide/
+
+# Test Results
+TestResults/
+
+# OS Generated
+.DS_Store
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Backup and generated files
+*.bak
+*.sw?
+*.log
+
+# Lock files
+project.lock.json
+project.fragment.lock.json
+
+# Runtime generated files
+*.pyc
+*.pyo
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
